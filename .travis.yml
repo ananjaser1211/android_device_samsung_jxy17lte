@@ -32,3 +32,7 @@ deploy:
     tags: false
     repo: TwrpBuilder/android_device_a5y17lte
     branch: master
+
+branches:
+  except:
+    - /^(?i:untagged)-.*$/
