@@ -13,8 +13,8 @@ script:
   - git clone https://github.com/TwrpBuilder/device_generic_twrpbuilder.git device/generic/twrpbuilder
   - rm -rf bootable/recovery && git clone https://github.com/omnirom/android_bootable_recovery.git bootable/recovery
   - |
-    docker run --rm -i -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) -v "$(pwd):/home/cmbuild/twrp/:rw,z" surendrajat/twrp-builder bash << EOF
-    cd /home/cmbuild/twrp/
+    docker run --rm -i -v "$(pwd):/root/twrp/:rw,z" surendrajat/twrp-builder bash << EOF
+    cd /root/twrp/
     source build/envsetup.sh && lunch omni_a5y17lte-userdebug && make -j16 recoveryimage
     exit
     EOF
