@@ -14,16 +14,14 @@
 # limitations under the License.
 #
 
-/efs            ext4         /dev/block/platform/13540000.dwmmc0/by-name/EFS            
-/boot           emmc         /dev/block/platform/13540000.dwmmc0/by-name/BOOT           
-/recovery       emmc         /dev/block/platform/13540000.dwmmc0/by-name/RECOVERY       
-/cache          ext4         /dev/block/platform/13540000.dwmmc0/by-name/CACHE          
-/system         ext4         /dev/block/platform/13540000.dwmmc0/by-name/SYSTEM         
-/data           ext4         /dev/block/platform/13540000.dwmmc0/by-name/USERDATA       length=-20480
-/preload        ext4         /dev/block/platform/13540000.dwmmc0/by-name/HIDDEN         
-/modem          emmc        /dev/block/platform/13540000.dwmmc0/by-name/RADIO         
-/efs1         emmc   /dev/block/mmcblk0p12 flags=backup=1;display=EFS
-/efs2         emmc   /dev/block/mmcblk0p13 flags=backup=1;subpartitionof=/efs1
-/efs3         emmc   /dev/block/mmcblk0p14 flags=backup=1;subpartitionof=/efs1
-/external_sd     vfat       /dev/block/mmcblk1p1    /dev/block/mmcblk1   flags=display="Micro SDcard";storage;wipeingui;removable
-/usb-otg         vfat       /dev/block/sda1         /dev/block/sda       flags=display="USB-OTG";storage;wipeingui;removable
+/system		ext4	/dev/block/platform/13540000.dwmmc0/by-name/SYSTEM
+/data		ext4	/dev/block/platform/13540000.dwmmc0/by-name/USERDATA flags=length=-20480,encryptable=footer
+/cache		ext4	/dev/block/platform/13540000.dwmmc0/by-name/CACHE
+/preload	ext4	/dev/block/platform/13540000.dwmmc0/by-name/HIDDEN	 flags=backup=1;display="Preload"
+/boot		emmc	/dev/block/platform/13540000.dwmmc0/by-name/BOOT	 flags=backup=1;display="Kernel"
+/recovery	emmc	/dev/block/platform/13540000.dwmmc0/by-name/RECOVERY flags=backup=1;display="Recovery"
+/modem		emmc	/dev/block/platform/13540000.dwmmc0/by-name/RADIO    flags=backup=1;display="Baseband"
+/efs		ext4	/dev/block/platform/13540000.dwmmc0/by-name/EFS	     flags=backup=1;display="EFS"
+/misc       emmc    /dev/block/platform/13540000.dwmmc0/by-name/OTA
+/external_sd	vfat	/dev/block/mmcblk1p1 /dev/block/mmcblk1	         flags=display="Micro SDcard";storage;wipeingui;removable
+/usb-otg	vfat	/dev/block/sda1  /dev/block/sda				         flags=display="USB-OTG";storage;wipeingui;removable

@@ -2,20 +2,20 @@ sudo: required
 services:
   - docker
 before_install:
-  - docker pull surendrajat/twrp-builder:latest
+  - docker pull yshalsager/lineageos:14.1
 before_script:
-- cd $HOME && mkdir twrp
-- wget -q https://github.com/TwrpBuilder/twrp-sources/releases/download/omni_twrp-5.1.1-20180211/omni_twrp-5.1.1-20180211-norepo.tar.xz
-  -O $HOME/twrp.tar.xz
-- tar -xJf twrp.tar.xz --directory $HOME/twrp/ && rm twrp.tar.xz
+  - cd $HOME && mkdir twrp
+  - wget -q https://github.com/TwrpBuilder/twrp-sources/releases/download/omni_twrp-8.1-20180221-norepo/omni_twrp-8.1-20180221-norepo.tar.xz
+    -O $HOME/twrp.tar.xz
+  - tar -xJf twrp.tar.xz --directory $HOME/twrp/ && rm twrp.tar.xz
 script:
   - cd $HOME/twrp/ && git clone https://github.com/TwrpBuilder/android_device_samsung_a5y17lte.git device/samsung/a5y17lte
-  - git clone https://github.com/TwrpBuilder/android_device_generic_twrpbuilder.git device/generic/twrpbuilder
-  - rm -rf bootable/recovery && git clone https://github.com/omnirom/android_bootable_recovery.git bootable/recovery
+  - rm -rf prebuilts/clang/host/linux-x86 && git clone https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86 prebuilts/clang/host/linux-x86 -b android-7.0.0_r21 --depth=1
+  - rm -rf bootable/recovery && git clone https://github.com/omnirom/android_bootable_recovery.git bootable/recovery --depth=1
   - |
-    docker run --rm -i -v "$(pwd):/root/twrp/:rw,z" surendrajat/twrp-builder bash << EOF
-    cd /root/twrp/
-    source build/envsetup.sh && lunch omni_a5y17lte-userdebug && make -j16 recoveryimage
+    docker run --rm -i -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) -v "$(pwd):/home/twrp/:rw,z" yshalsager/lineageos:14.1 bash << EOF
+    cd /home/twrp/
+    source build/envsetup.sh && lunch omni_a5y17lte-eng && make -j16 recoveryimage
     exit
     EOF
 after_success:
@@ -32,7 +32,6 @@ deploy:
     tags: false
     repo: TwrpBuilder/android_device_samsung_a5y17lte
     branch: master
-
 branches:
   except:
     - /^(?i:untagged)-.*$/

@@ -14,10 +14,5 @@
 # limitations under the License.
 #
 
-ifneq ($(filter a5y17lte,$(TARGET_DEVICE)),)
-
-LOCAL_PATH := device/samsung/a5y17lte
-
+LOCAL_PATH := device/samsung/a5y17lte/
 include $(call all-makefiles-under,$(LOCAL_PATH))
-
-endif
