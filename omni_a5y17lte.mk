@@ -22,5 +22,6 @@ $(call inherit-product, vendor/omni/config/common.mk)
 
 PRODUCT_DEVICE := a5y17lte
 PRODUCT_NAME := omni_a5y17lte
+PRODUCT_MODEL := SM-A520F
 PRODUCT_BRAND := samsung
 PRODUCT_MANUFACTURER := samsung
