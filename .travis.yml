@@ -21,13 +21,15 @@ script:
 after_success:
   - export version=$(cat bootable/recovery/variables.h | grep "define TW_MAIN_VERSION_STR" | cut -d '"' -f2)
   - cp $HOME/twrp/out/target/product/j5y17lte/recovery.img $HOME/twrp/TWRP-$version-j5y17lte-$(date +"%Y%m%d").img
+  - tar -cf $HOME/twrp/TWRP-$version-j5y17lte-$(date +"%Y%m%d").tar $HOME/twrp/out/target/product/j5y17lte/recovery.img
+
 
 deploy:
   skip_cleanup: true
   provider: releases
   api_key: "$GIT_OAUTH_TOKEN_TB"
   file_glob: true
-  file: $HOME/twrp/*.img
+  file: $HOME/twrp/TWRP-*
   on:
     tags: false
     repo: DevKingsTeam/android_device_samsung_j5y17lte
