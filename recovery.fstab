@@ -17,11 +17,15 @@
 /system		ext4	/dev/block/platform/13540000.dwmmc0/by-name/SYSTEM
 /data		ext4	/dev/block/platform/13540000.dwmmc0/by-name/USERDATA flags=length=-20480,encryptable=footer
 /cache		ext4	/dev/block/platform/13540000.dwmmc0/by-name/CACHE
-/preload	ext4	/dev/block/platform/13540000.dwmmc0/by-name/HIDDEN	 flags=backup=1;display="Preload"
+/preload	ext4	/dev/block/platform/13540000.dwmmc0/by-name/HIDDEN	 flags=backup=1;wipeingui;display="Preload"
 /boot		emmc	/dev/block/platform/13540000.dwmmc0/by-name/BOOT	 flags=backup=1;display="Kernel"
 /recovery	emmc	/dev/block/platform/13540000.dwmmc0/by-name/RECOVERY flags=backup=1;display="Recovery"
-/modem		emmc	/dev/block/platform/13540000.dwmmc0/by-name/RADIO    flags=backup=1;display="Baseband"
+/modem		emmc	/dev/block/platform/13540000.dwmmc0/by-name/RADIO    flags=backup=1;display="Modem"
 /efs		ext4	/dev/block/platform/13540000.dwmmc0/by-name/EFS	     flags=backup=1;display="EFS"
+/cpefs		emmc	/dev/block/platform/13540000.dwmmc0/by-name/CPEFS	 flags=backup=1;display="CPEFS"
+/m9kefs    emmc  /dev/block/platform/13540000.dwmmc0/by-name/m9kefs1  flags=backup=1
+/m9kefs2    emmc  /dev/block/platform/13540000.dwmmc0/by-name/m9kefs2  flags=backup=1;subpartitionof=/m9kefs
+/m9kefs3    emmc  /dev/block/platform/13540000.dwmmc0/by-name/m9kefs3  flags=backup=1;subpartitionof=/m9kefs
 /misc       emmc    /dev/block/platform/13540000.dwmmc0/by-name/OTA
 /external_sd	vfat	/dev/block/mmcblk1p1 /dev/block/mmcblk1	         flags=display="Micro SDcard";storage;wipeingui;removable
 /usb-otg	vfat	/dev/block/sda1  /dev/block/sda				         flags=display="USB-OTG";storage;wipeingui;removable
