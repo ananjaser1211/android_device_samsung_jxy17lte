@@ -20,7 +20,7 @@ Add to `.repo/local_manifests/j5y17lte.xml`:
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-	<project path="device/samsung/j5y17lte" name="android_device_samsung_j5y17lte" remote="devkingsteam" revision="master" />
+  <project name="ananjaser1211/android_device_samsung_jxy17lte" path="device/samsung/j5y17lte" remote="github" revision="j5y17lte" />
 </manifest>
 ```
 
@@ -31,7 +31,7 @@ To build:
 ```sh
 . build/envsetup.sh
 lunch omni_j5y17lte-eng
-make -j5 recoveryimage
+make -j64 recoveryimage
 ```
 
 Kernel sources are available at: https://github.com/ananjaser1211/Helios_7870
