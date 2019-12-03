@@ -1,6 +1,6 @@
 ## TWRP device tree for Samsung Galaxy J5 2017 (J5Y17LTE)
 
- Copyright (C) 2018 DevKingsTeam Open-source
+ Copyright (C) 2019 Ananjaser1211 Open-source
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
