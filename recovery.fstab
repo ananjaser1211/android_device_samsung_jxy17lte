@@ -16,9 +16,7 @@
 
 /system		ext4	/dev/block/platform/13540000.dwmmc0/by-name/SYSTEM
 /data		ext4	/dev/block/platform/13540000.dwmmc0/by-name/USERDATA flags=encryptable=footer;length=-20480
-/data		f2fs	/dev/block/platform/13540000.dwmmc0/by-name/USERDATA flags=encryptable=footer;length=-20480
 /cache		ext4	/dev/block/platform/13540000.dwmmc0/by-name/CACHE
-/cache		f2fs	/dev/block/platform/13540000.dwmmc0/by-name/CACHE
 /boot		emmc	/dev/block/platform/13540000.dwmmc0/by-name/BOOT	 flags=backup=1;display="Kernel"
 /recovery	emmc	/dev/block/platform/13540000.dwmmc0/by-name/RECOVERY flags=backup=1;display="Recovery"
 /modem		emmc	/dev/block/platform/13540000.dwmmc0/by-name/RADIO    flags=backup=1;display="Modem"
